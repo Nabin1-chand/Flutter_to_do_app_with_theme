@@ -6,7 +6,7 @@ import 'package:my_todo_app/todo_app/modal/boxes.dart';
 import 'package:my_todo_app/todo_app/modal/todo_modal.dart';
 import 'package:my_todo_app/todo_app/todo_screen.dart';
 
-import '../main.dart';
+// import '../main.dart';
 
 class MyTodo extends StatefulWidget {
   const MyTodo({
@@ -33,24 +33,24 @@ class _MyTodoState extends State<MyTodo> {
         onPressed: () => _buildDialouge(context),
         child: const Icon(Icons.add),
       ),
-      appBar: AppBar(
-        title: const Center(child: Text("Your Daily Activities")),
-        // backgroundColor: const Color.fromARGB(193, 243, 201, 64),
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        actions: [
-          Switch(
-              value: checkValue,
-              onChanged: (newValue) {
-                setState(() {
-                  checkValue = newValue;
-                  if (checkValue)
-                    MyApp.of(context)!.changeTheme(ThemeMode.dark);
-                  else
-                    MyApp.of(context)!.changeTheme(ThemeMode.light);
-                });
-              })
-        ],
-      ),
+      // appBar: AppBar(
+      //   title: const Center(child: Text("Your Daily Activities")),
+      // backgroundColor: const Color.fromARGB(193, 243, 201, 64),
+      // backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+      // actions: [
+      //   Switch(
+      //       value: checkValue,
+      //       onChanged: (newValue) {
+      //         setState(() {
+      //           checkValue = newValue;
+      //           if (checkValue)
+      //             MyApp.of(context)!.changeTheme(ThemeMode.dark);
+      //           else
+      //             MyApp.of(context)!.changeTheme(ThemeMode.light);
+      //         });
+      //       })
+      // ],
+      // ),
       body: Boxes.getBox().isEmpty
           ? const Center(
               child: Text(
@@ -276,7 +276,7 @@ class _MyTodoState extends State<MyTodo> {
                             if (titleController.text.isNotEmpty ||
                                 descriptionController.text.isNotEmpty) {
                               setState(() {});
-                              Boxes.getBox().putAt(
+                              await Boxes.getBox().putAt(
                                   index,
                                   ToDoModal(titleController.text,
                                       descriptionController.text));
